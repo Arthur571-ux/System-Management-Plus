@@ -1,0 +1,7 @@
+com\template\ui\MainController.class
+com\template\logger.class
+com\template\Student.class
+com\template\service\StudentService.class
+com\template\Main.class
+com\template\service\StudentDAO.class
+com\template\ui\ReportsController.class

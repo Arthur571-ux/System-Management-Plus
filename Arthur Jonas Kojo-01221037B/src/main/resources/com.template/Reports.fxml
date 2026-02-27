@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.template.ui.ReportsController" style="-fx-background-color: #F0F4F8;">
+
+    <!-- TOP HEADER WITH FLOATING FILTER -->
+    <top>
+        <HBox style="-fx-padding: 20; -fx-background-color: #1F3A93;" spacing="20" alignment="CENTER_LEFT">
+            <Label text="Student Reports System" style="-fx-text-fill: white; -fx-font-size: 26px; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <HBox spacing="10" style="-fx-background-color: #ffffff; -fx-padding: 10; -fx-background-radius: 10;" alignment="CENTER_LEFT">
+                <Label text="Min GPA:" style="-fx-text-fill: #1F3A93; -fx-font-weight: bold;" />
+                <TextField fx:id="gpaThresholdField" prefWidth="100" promptText="Enter GPA" style="-fx-background-color: #EAF0F6; -fx-text-fill: #1F3A93; -fx-border-color: #1F3A93; -fx-border-radius: 5;" />
+            </HBox>
+        </HBox>
+    </top>
+
+    <!-- CENTER TABLE AREA -->
+    <center>
+        <StackPane style="-fx-padding: 20;">
+            <VBox spacing="15">
+
+                <!-- Table Card -->
+                <VBox style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 20; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.15), 10, 0, 0, 0);">
+                    <TableView fx:id="reportTable" style="-fx-control-inner-background: #FFFFFF; -fx-text-fill: black;" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="idColumn" prefWidth="100" text="Student ID" />
+                            <TableColumn fx:id="nameColumn" prefWidth="150" text="Full Name" />
+                            <TableColumn fx:id="programmeColumn" prefWidth="120" text="Programme" />
+                            <TableColumn fx:id="levelColumn" prefWidth="80" text="Level" />
+                            <TableColumn fx:id="gpaColumn" prefWidth="80" text="GPA" />
+                            <TableColumn fx:id="emailColumn" prefWidth="170" text="Email" />
+                            <TableColumn fx:id="phoneColumn" prefWidth="120" text="Phone" />
+                            <TableColumn prefWidth="75.0" text="Status" />
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <!-- ACTION BUTTONS -->
+                <HBox spacing="20" alignment="CENTER" style="-fx-padding: 10;">
+                    <Button onAction="#handleLoadReport" text="Generate Report" style="-fx-background-color: #1ABC9C; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 120;" />
+                    <Button onAction="#handleClearReport" text="Clear table" style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 120;" />
+                    <Button onAction="#handleImportCSV" text="CSV IMPORT" style="-fx-background-color: #F39C12; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 120;" />
+                    <Button onAction="#handleExportCSV" text="CSV EXPORT" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 120;" />
+                </HBox>
+
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>
